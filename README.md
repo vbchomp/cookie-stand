@@ -12,9 +12,11 @@ Author: Heather Bisgaard
 
 ### Links and Resources
 
-Any Links you used as reference
+[Random Number Between Two Values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 
 ### Submission PR
+
+[Working branch](https://github.com/vbchomp/cookie-stand/pull/new/cookie)
 
 ### Reflections and Comments
 
