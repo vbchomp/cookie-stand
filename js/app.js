@@ -3,7 +3,8 @@
 // POL
 console.log('Wazzup');
 
-// access DOM with each list
+// access DOM with each container
+// const mainContainer = document.getElementsByClassName('main-conatiner');
 const seattleList = document.getElementById('seattle-list');
 const tokyoList = document.getElementById('tokyo-list');
 const dubaiList = document.getElementById('dubai-list');
@@ -23,43 +24,231 @@ let seattle = {
   cookiesPerHrArray: [],
   // random customer number generator
   randomCust: function () {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   },
-  // to calculate total cookie sales per hour
+  // to calculate total cookie sales per hour and adds daily total
+  // then pushes to the cookies array.
   totalHourlySales: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
       let custHours = this.randomCust();
       let totalHourly = Math.ceil(custHours * this.avgCookieSale);
       this.cookiesPerHrArray.push(totalHourly);
       this.dailyTotal += totalHourly;
-      console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
-      console.log(this.dailyTotal);
+      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
     }
+    this.cookiesPerHrArray.push(this.dailyTotal);
+    console.log('This is daily total: ', this.dailyTotal);
+    return `${hoursOpenArray}: `, this.totalHourly;
   },
-  // totalDaily
-  // Need to save totalHourly as an array to be able to use this totalDaily
-  totalDaily: function(){
-    let total = 0;
-    for (let i = 0; i < this.hoursOpenArray.length; i++){
-      total = total + this.totalHourly[i];
+  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  renderToHTML: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let listEl = document.createElement('li');
+      // console.log(listEl);
+      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
+      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()} cookies`;
+      seattleList.appendChild(listEl);
     }
-  },
-  // render function
-  render: function(){
-    this.totalHourlySales();
-    console.log('this is the render');
+    seattleList.append('Total: ', this.dailyTotal);
   }
-  // let li = document.createElement('li');
-  // li.textContent = `${hoursOpenArray[i]}: ${totalHourly} cookies`;
-  // seattleList.appendChild(li);
-  // what is the render method?
 };
+// seattle.randomCust();
+// seattle.totalHourlySales();
+seattle.renderToHTML();
 
-// let li = document.createElement('li');
-// li.textContent = `Total: ${total} cookies`;
-// seattleList.appendChild(li);
-// console.log(cookiesPerHrArray());
-//console.log(seattle.randomCust());
-console.log(seattle.render());
+// // render function from Will
+// render: function () {
+//   this.totalHourlySales();
+//   console.log('this is the render');
+//   let elementArray = [];
+//   for (let i =0; i < hoursOpenArray.length; i++) {
+//     let elementLine = `${hoursOpenArray[i]}: ${this.cookiesPerHrArray[i]} cookies`;
+//     elementArray.push(elementLine);
+//   }
+//   //creating each location section to include a header and list
+//   let citySection = document.createElement('section');
+//   //creating each location header
+//   let cityHeader = document.createElement('h2');
+//   //creating each location list
+//   let ulEl = document.createElement('ul');
+//   //appending the elements
+//   maincontainer.appendChild(citySection);
+//   citySection.appendChild(cityHeader);
+//   citySection.appendChild(ulEl);
+//   //for loop to include the li
+//   for(let i = 0; i< elementArray.length; i++){
+//     let listEl = document.createElement('li');
+//     listEl.textContent = elementArray[i];
+//     ulEl.appendChild(listEl);
+//   }
+
+// console.log(seattle.renderToHTML());
 console.log(seattle.cookiesPerHrArray);
 
+// Tokyo Site object literal
+let tokyo = {
+  nameLoc: 'Tokyo',
+  minCust: 3,
+  maxCust: 24,
+  avgCookieSale: 1.2,
+  dailyTotal: 0,
+  //empty array to hold
+  cookiesPerHrArray: [],
+  // random customer number generator
+  randomCust: function () {
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  // to calculate total cookie sales per hour and adds daily total
+  // then pushes to the cookies array.
+  totalHourlySales: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let custHours = this.randomCust();
+      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
+      this.cookiesPerHrArray.push(totalHourly);
+      this.dailyTotal += totalHourly;
+      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+    }
+    console.log('This is daily total: ', this.dailyTotal);
+  },
+  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  renderToHTML: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let listEl = document.createElement('li');
+      // console.log(listEl);
+      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
+      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
+      tokyoList.appendChild(listEl);
+    }
+    tokyoList.append('Total: ', this.dailyTotal);
+  }
+};
+// this.cookiesPerHrArray.push(this.dailyTotal);
+// tokyo.randomCust();
+// tokyo.totalHourlySales();
+tokyo.renderToHTML();
+
+// Dubai Site object literal
+let dubai = {
+  nameLoc: 'Dubai',
+  minCust: 11,
+  maxCust: 38,
+  avgCookieSale: 3.7,
+  dailyTotal: 0,
+  //empty array to hold
+  cookiesPerHrArray: [],
+  // random customer number generator
+  randomCust: function () {
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  // to calculate total cookie sales per hour and adds daily total
+  // then pushes to the cookies array.
+  totalHourlySales: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let custHours = this.randomCust();
+      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
+      this.cookiesPerHrArray.push(totalHourly);
+      this.dailyTotal += totalHourly;
+      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+    }
+    console.log('This is daily total: ', this.dailyTotal);
+  },
+  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  renderToHTML: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let listEl = document.createElement('li');
+      // console.log(listEl);
+      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
+      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
+      dubaiList.appendChild(listEl);
+    }
+    dubaiList.append('Total: ', this.dailyTotal);
+  }
+};
+// this.cookiesPerHrArray.push(this.dailyTotal);
+// dubai.randomCust();
+// dubai.totalHourlySales();
+dubai.renderToHTML();
+
+// Paris Site object literal
+let paris = {
+  nameLoc: 'Paris',
+  minCust: 20,
+  maxCust: 38,
+  avgCookieSale: 2.3,
+  dailyTotal: 0,
+  //empty array to hold
+  cookiesPerHrArray: [],
+  // random customer number generator
+  randomCust: function () {
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  // to calculate total cookie sales per hour and adds daily total
+  // then pushes to the cookies array.
+  totalHourlySales: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let custHours = this.randomCust();
+      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
+      this.cookiesPerHrArray.push(totalHourly);
+      this.dailyTotal += totalHourly;
+      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+    }
+    console.log('This is daily total: ', this.dailyTotal);
+  },
+  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  renderToHTML: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let listEl = document.createElement('li');
+      // console.log(listEl);
+      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
+      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
+      parisList.appendChild(listEl);
+    }
+    parisList.append('Total: ', this.dailyTotal);
+  }
+};
+// this.cookiesPerHrArray.push(this.dailyTotal);
+// paris.randomCust();
+// paris.totalHourlySales();
+paris.renderToHTML();
+
+// Lima Site object literal
+let lima = {
+  nameLoc: 'Lima',
+  minCust: 2,
+  maxCust: 16,
+  avgCookieSale: 4.6,
+  dailyTotal: 0,
+  //empty array to hold
+  cookiesPerHrArray: [],
+  // random customer number generator
+  randomCust: function () {
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  },
+  // to calculate total cookie sales per hour and adds daily total
+  // then pushes to the cookies array.
+  totalHourlySales: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let custHours = this.randomCust();
+      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
+      this.cookiesPerHrArray.push(totalHourly);
+      this.dailyTotal += totalHourly;
+      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+    }
+    console.log('This is daily total: ', this.dailyTotal);
+  },
+  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  renderToHTML: function () {
+    for (let i = 0; i < hoursOpenArray.length; i++) {
+      let listEl = document.createElement('li');
+      // console.log(listEl);
+      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
+      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
+      limaList.appendChild(listEl);
+    }
+    limaList.append('Total: ', this.dailyTotal);
+  }
+};
+// this.cookiesPerHrArray.push(this.dailyTotal);
+// lima.randomCust();
+// lima.totalHourlySales();
+lima.renderToHTML();
