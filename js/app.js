@@ -22,6 +22,8 @@ let seattle = {
   dailyTotal: 0,
   //empty array to hold
   cookiesPerHrArray: [],
+  // cookies to hold total hourly sales
+  cookies: 0,
   // random customer number generator
   randomCust: function () {
     return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
@@ -30,33 +32,54 @@ let seattle = {
   // then pushes to the cookies array.
   totalHourlySales: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let custHours = this.randomCust();
-      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
-      this.cookiesPerHrArray.push(totalHourly);
-      this.dailyTotal += totalHourly;
-      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+      this.cookies = Math.ceil(this.avgCookieSale * this.randomCust());
+      this.cookiesPerHrArray.push(this.cookies);
+      // console.log(this.cookies);
     }
-    this.cookiesPerHrArray.push(this.dailyTotal);
-    console.log('This is daily total: ', this.dailyTotal);
-    return `${hoursOpenArray}: `, this.totalHourly;
+    // adds up hourly totals to get daily totals
+    this.dailyTotal += this.cookies;
+    // console.log('This is daily total: ', this.dailyTotal);
+    return this.cookiesPerHrArray;
   },
-  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  // sends arrays to html list items
   renderToHTML: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let listEl = document.createElement('li');
-      // console.log(listEl);
-      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
-      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()} cookies`;
-      seattleList.appendChild(listEl);
+      let li = document.createElement('li');
+      li.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()[i]} cookies`;
+      seattleList.appendChild(li);
     }
     seattleList.append('Total: ', this.dailyTotal);
-  }
+  },
 };
-// seattle.randomCust();
-// seattle.totalHourlySales();
 seattle.renderToHTML();
 
-// // render function from Will
+//       let custHours = this.randomCust();
+//       let totalHourly = Math.ceil(custHours * this.avgCookieSale);
+//       this.cookiesPerHrArray.push(totalHourly);
+//       // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+//     }
+//     this.dailyTotal += totalHourly;
+//     this.cookiesPerHrArray.push(this.dailyTotal);
+//     console.log('This is daily total: ', this.dailyTotal);
+//     return `${hoursOpenArray}: `, this.totalHourly;
+//   },
+//   // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+//   renderToHTML: function () {
+//     for (let i = 0; i < hoursOpenArray.length; i++) {
+//       let listEl = document.createElement('li');
+//       // console.log(listEl);
+//       // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
+//       listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()} cookies`;
+//       seattleList.appendChild(listEl);
+//     }
+//     seattleList.append('Total: ', this.dailyTotal);
+//   }
+// };
+// // seattle.randomCust();
+// // seattle.totalHourlySales();
+// seattle.renderToHTML();
+
+// // render function from Will - need to look at more to see if i can incorporate
 // render: function () {
 //   this.totalHourlySales();
 //   console.log('this is the render');
@@ -85,6 +108,14 @@ seattle.renderToHTML();
 // console.log(seattle.renderToHTML());
 console.log(seattle.cookiesPerHrArray);
 
+// Table of values
+// Seattle	23	65	6.3
+// Tokyo	3	24	1.2
+// Dubai	11	38	3.7
+// Paris	20	38	2.3
+// Lima	2	16	4.6
+
+// Tokyo	3	24	1.2
 // Tokyo Site object literal
 let tokyo = {
   nameLoc: 'Tokyo',
@@ -94,6 +125,8 @@ let tokyo = {
   dailyTotal: 0,
   //empty array to hold
   cookiesPerHrArray: [],
+  // cookies to hold total hourly sales
+  cookies: 0,
   // random customer number generator
   randomCust: function () {
     return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
@@ -102,31 +135,28 @@ let tokyo = {
   // then pushes to the cookies array.
   totalHourlySales: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let custHours = this.randomCust();
-      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
-      this.cookiesPerHrArray.push(totalHourly);
-      this.dailyTotal += totalHourly;
-      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+      this.cookies = Math.ceil(this.avgCookieSale * this.randomCust());
+      this.cookiesPerHrArray.push(this.cookies);
+      // console.log(this.cookies);
     }
-    console.log('This is daily total: ', this.dailyTotal);
+    // adds up hourly totals to get daily totals
+    this.dailyTotal += this.cookies;
+    // console.log('This is daily total: ', this.dailyTotal);
+    return this.cookiesPerHrArray;
   },
-  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  // sends arrays to html list items
   renderToHTML: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let listEl = document.createElement('li');
-      // console.log(listEl);
-      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
-      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
-      tokyoList.appendChild(listEl);
+      let li = document.createElement('li');
+      li.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()[i]} cookies`;
+      tokyoList.appendChild(li);
     }
     tokyoList.append('Total: ', this.dailyTotal);
-  }
+  },
 };
-// this.cookiesPerHrArray.push(this.dailyTotal);
-// tokyo.randomCust();
-// tokyo.totalHourlySales();
 tokyo.renderToHTML();
 
+// Dubai	11	38	3.7
 // Dubai Site object literal
 let dubai = {
   nameLoc: 'Dubai',
@@ -136,6 +166,8 @@ let dubai = {
   dailyTotal: 0,
   //empty array to hold
   cookiesPerHrArray: [],
+  // cookies to hold total hourly sales
+  cookies: 0,
   // random customer number generator
   randomCust: function () {
     return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
@@ -144,31 +176,28 @@ let dubai = {
   // then pushes to the cookies array.
   totalHourlySales: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let custHours = this.randomCust();
-      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
-      this.cookiesPerHrArray.push(totalHourly);
-      this.dailyTotal += totalHourly;
-      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+      this.cookies = Math.ceil(this.avgCookieSale * this.randomCust());
+      this.cookiesPerHrArray.push(this.cookies);
+      // console.log(this.cookies);
     }
-    console.log('This is daily total: ', this.dailyTotal);
+    // adds up hourly totals to get daily totals
+    this.dailyTotal += this.cookies;
+    // console.log('This is daily total: ', this.dailyTotal);
+    return this.cookiesPerHrArray;
   },
-  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  // sends arrays to html list items
   renderToHTML: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let listEl = document.createElement('li');
-      // console.log(listEl);
-      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
-      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
-      dubaiList.appendChild(listEl);
+      let li = document.createElement('li');
+      li.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()[i]} cookies`;
+      dubaiList.appendChild(li);
     }
     dubaiList.append('Total: ', this.dailyTotal);
-  }
+  },
 };
-// this.cookiesPerHrArray.push(this.dailyTotal);
-// dubai.randomCust();
-// dubai.totalHourlySales();
 dubai.renderToHTML();
 
+// Paris	20	38	2.3
 // Paris Site object literal
 let paris = {
   nameLoc: 'Paris',
@@ -178,6 +207,8 @@ let paris = {
   dailyTotal: 0,
   //empty array to hold
   cookiesPerHrArray: [],
+  // cookies to hold total hourly sales
+  cookies: 0,
   // random customer number generator
   randomCust: function () {
     return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
@@ -186,31 +217,28 @@ let paris = {
   // then pushes to the cookies array.
   totalHourlySales: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let custHours = this.randomCust();
-      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
-      this.cookiesPerHrArray.push(totalHourly);
-      this.dailyTotal += totalHourly;
-      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+      this.cookies = Math.ceil(this.avgCookieSale * this.randomCust());
+      this.cookiesPerHrArray.push(this.cookies);
+      // console.log(this.cookies);
     }
-    console.log('This is daily total: ', this.dailyTotal);
+    // adds up hourly totals to get daily totals
+    this.dailyTotal += this.cookies;
+    // console.log('This is daily total: ', this.dailyTotal);
+    return this.cookiesPerHrArray;
   },
-  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  // sends arrays to html list items
   renderToHTML: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let listEl = document.createElement('li');
-      // console.log(listEl);
-      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
-      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
-      parisList.appendChild(listEl);
+      let li = document.createElement('li');
+      li.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()[i]} cookies`;
+      parisList.appendChild(li);
     }
     parisList.append('Total: ', this.dailyTotal);
-  }
+  },
 };
-// this.cookiesPerHrArray.push(this.dailyTotal);
-// paris.randomCust();
-// paris.totalHourlySales();
 paris.renderToHTML();
 
+// Lima	2	16	4.6
 // Lima Site object literal
 let lima = {
   nameLoc: 'Lima',
@@ -220,6 +248,8 @@ let lima = {
   dailyTotal: 0,
   //empty array to hold
   cookiesPerHrArray: [],
+  // cookies to hold total hourly sales
+  cookies: 0,
   // random customer number generator
   randomCust: function () {
     return Math.ceil(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
@@ -228,27 +258,23 @@ let lima = {
   // then pushes to the cookies array.
   totalHourlySales: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let custHours = this.randomCust();
-      let totalHourly = Math.ceil(custHours * this.avgCookieSale);
-      this.cookiesPerHrArray.push(totalHourly);
-      this.dailyTotal += totalHourly;
-      // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
+      this.cookies = Math.ceil(this.avgCookieSale * this.randomCust());
+      this.cookiesPerHrArray.push(this.cookies);
+      // console.log(this.cookies);
     }
-    console.log('This is daily total: ', this.dailyTotal);
+    // adds up hourly totals to get daily totals
+    this.dailyTotal += this.cookies;
+    // console.log('This is daily total: ', this.dailyTotal);
+    return this.cookiesPerHrArray;
   },
-  // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
+  // sends arrays to html list items
   renderToHTML: function () {
     for (let i = 0; i < hoursOpenArray.length; i++) {
-      let listEl = document.createElement('li');
-      // console.log(listEl);
-      // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
-      listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`;
-      limaList.appendChild(listEl);
+      let li = document.createElement('li');
+      li.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()[i]} cookies`;
+      limaList.appendChild(li);
     }
     limaList.append('Total: ', this.dailyTotal);
-  }
+  },
 };
-// this.cookiesPerHrArray.push(this.dailyTotal);
-// lima.randomCust();
-// lima.totalHourlySales();
 lima.renderToHTML();
