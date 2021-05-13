@@ -1,25 +1,34 @@
 /* basic elements styling */
-html {
+/* html {
 
-}
+} */
 
 body {
-
+  background-image: url('/img/salmonLogo.png');
+  background-repeat: repeat-y;
+  background-position: right top;
+  background-color: bisque;
+  /* opacity: 50%; */
 }
 
 h1 {
   font-family: 'Cuprum', sans-serif;
+  color: cadetblue;
 }
 
 /* Seattle { */
-  font-size: 2em;
-}
+  /* font-size: 2em;
+} */
   
 li {
   font-family: "Verdana";
+  color: purple;
+  
 }
  
 p {
   font-family: "Georgia";
+  color: darkgreen;
+  font-size: 1.5em;
 }
   

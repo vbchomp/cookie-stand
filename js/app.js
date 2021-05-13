@@ -49,35 +49,37 @@ let seattle = {
       seattleList.appendChild(li);
     }
     seattleList.append('Total: ', this.dailyTotal);
-  },
+  // Another render function based on will's
+  // Does not recognize maincontainer - ask TA tonight
+  // renderToHTMLVerbose: function () {
+  //   this.totalHourlySales();
+  //   let elementArray = [];
+  //   for (let i = 0; i < hoursOpenArray.length; i++) {
+  //     let elementLine = `${hoursOpenArray[i]}: ${this.cookiesPerHrArray[i]} cookies`;
+  //     elementArray.push(elementLine);
+  //   }
+  //   elementArray.push(`Total: ${this.dailyTotal} cookies`);
+  //   //creating each location section to include a header and list
+  //   let citySection = document.createElement('section');
+  //   //creating each location header
+  //   let cityHeader = document.createElement('h2');
+  //   //creating each location list
+  //   let ulEl = document.createElement('ul');
+  //   //appending the elements
+  //   maincontainer.appendChild(citySection);
+  //   citySection.appendChild(cityHeader);
+  //   citySection.appendChild(ulEl);
+  //   //for loop to include the list items
+  //   for (let i = 0; i < elementArray.length; i++) {
+  //     let listEl = document.createElement('li');
+  //     listEl.textContent = elementArray[i];
+  //     ulEl.appendChild(listEl);
+  //   }
+  }
 };
 seattle.renderToHTML();
-
-//       let custHours = this.randomCust();
-//       let totalHourly = Math.ceil(custHours * this.avgCookieSale);
-//       this.cookiesPerHrArray.push(totalHourly);
-//       // console.log('This is the totalHourlySales method', 'custHours: ', custHours, 'totalHourly: ', totalHourly);
-//     }
-//     this.dailyTotal += totalHourly;
-//     this.cookiesPerHrArray.push(this.dailyTotal);
-//     console.log('This is daily total: ', this.dailyTotal);
-//     return `${hoursOpenArray}: `, this.totalHourly;
-//   },
-//   // Cannot get to work line 47 become an undefined error, ran out of brain power. Turning in as WIP.
-//   renderToHTML: function () {
-//     for (let i = 0; i < hoursOpenArray.length; i++) {
-//       let listEl = document.createElement('li');
-//       // console.log(listEl);
-//       // console.log(`${hoursOpenArray[i]}: ${this.totalHourlySales[i]} cookies`);
-//       listEl.textContent = `${hoursOpenArray[i]}: ${this.totalHourlySales()} cookies`;
-//       seattleList.appendChild(listEl);
-//     }
-//     seattleList.append('Total: ', this.dailyTotal);
-//   }
-// };
-// // seattle.randomCust();
-// // seattle.totalHourlySales();
-// seattle.renderToHTML();
+// use if using seattle.renderToHTMLVerbose()
+//seattle.renderToHTMLVerbose();
 
 // // render function from Will - need to look at more to see if i can incorporate
 // render: function () {
