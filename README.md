@@ -8,7 +8,9 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 
 ### Collaborators
 
-Author: Heather Bisgaard
+Heather Bisgaard
+Willem Jacobs
+Charlie Fadness
 
 ### Links and Resources
 
