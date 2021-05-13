@@ -22,5 +22,4 @@ Charlie Fadness
 
 ### Reflections and Comments
 
-Consider including the answers to your daily journal and submission questions here
-This is also a good place to reflect on the tools and resources used and learned
+- What motivates adults to find time for their learning in their busy schedule? I've kind of cheated and waited until my kid was out of the house and all but my husband and animals needed my attention. My husband works swing shift and only misses me by a couple hours. So this is the perfect time to facilitate my learning. I just wish it had happened earlier in my career when my brain might have been more focused.
