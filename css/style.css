@@ -4,10 +4,11 @@
 } */
 
 body {
-  background-image: url('/cookie-stand/img/salmonLogo.png');
+  background-image: url('/img/salmonLogo.png');
   background-repeat: repeat-y;
   background-position: right top;
   background-color: bisque;
+  background-size: 35%;
   /* opacity: 50%; */
 }
 

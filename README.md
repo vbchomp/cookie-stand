@@ -4,7 +4,7 @@
 
 ## Salmon Cookies
 
-The Salmon Cookies site is a forward facing site that has the store's logo and store hours. The rear facing side has sale data. So far the sales data is cumulative for all five stores. 
+The Salmon Cookies site is a forward facing site that has the store's logo and store hours. The rear facing side has sale data. So far the sales data is cumulative for all five stores.
 
 ### Collaborators
 
