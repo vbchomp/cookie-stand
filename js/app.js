@@ -64,6 +64,7 @@ SalmonCookies.prototype.renderToHTML = function() {
   tr.appendChild(td);
 };
 
+// Header function to put hours on top row and Totals in last column
 SalmonCookies.prototype.renderHeader = function() {
   this.hoursOpenArray.unshift('');
   for (let i = 0; i < this.hoursOpenArray.length; i++) {
@@ -76,6 +77,9 @@ SalmonCookies.prototype.renderHeader = function() {
   salmonHead.appendChild(td);
 };
 
+// Not working at the moment
+// Maybe a while loop to see if row total matches column total?
+// Footer function to put Totals row and add up each column
 SalmonCookies.prototype.renderFooter = function() {
   td.textContent = 'Totals';
   for (let i = 0; i < this.hoursOpenArray.length; i++) {
@@ -84,10 +88,11 @@ SalmonCookies.prototype.renderFooter = function() {
     salmonHead.appendChild(td);
   }
   let td = document.createElement('td');
-  td.textContent = 'Daily Totals By Store';
+  td.textContent = 'Totals By Store';
   salmonFlipppers.appendChild(td);
 };
 
+// Render all function applies all functions and publishes data to html page
 function renderAll(){
   for (let i = 0; i < allRenderArray.length; i++){
     allRenderArray[i].renderToHTML();
@@ -96,6 +101,7 @@ function renderAll(){
   seattle.renderFooter();
 }
 
+// Instantiating store objects
 let seattle = new SalmonCookies('Seattle', 23, 65, 6.3);
 let tokyo = new SalmonCookies('Tokyo', 3, 24, 1.2);
 let dubai = new SalmonCookies('Dubai', 11, 38, 3.7);

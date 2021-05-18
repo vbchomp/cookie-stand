@@ -36,9 +36,9 @@ p {
 table {
   border-spacing: 5px;
   border: medium solid darkred;
-  margin: 25px, 0, 0, 0;
+  margin: 10px;
   width: 50%;
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 tr:nth-child(even) {
