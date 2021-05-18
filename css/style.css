@@ -36,9 +36,9 @@ p {
 table {
   border-spacing: 5px;
   border: medium solid darkred;
-  margin: 25px, 0, 0, 0;
+  margin: 10px;
   width: 50%;
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 tr:nth-child(even) {
@@ -50,12 +50,13 @@ tr td {
   border: 1px solid goldenrod;
   border-radius: 5px;
   color: darkchocolate;
-  text-align: left;
+  text-align: right;
 }
 
 #table-head, #table-foot {
   background-color: rgba(218, 165, 32, .5);
   font-weight: bold;
+  text-align: right;
 }
 
 /* th {
