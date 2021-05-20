@@ -1,8 +1,4 @@
-/* basic elements styling */
-/* html {
-
-} */
-
+/* general styling */
 body {
   background-image: url('/img/salmonLogo.png');
   background-repeat: repeat-y;
@@ -12,15 +8,62 @@ body {
   /* opacity: 50%; */
 }
 
+/* hedaer styling */
 h1 {
   font-family: 'Cuprum', sans-serif;
   color: cadetblue;
 }
 
-/* Seattle { */
-  /* font-size: 2em;
-} */
-  
+header {
+max-width: 920px;
+}
+
+nav {
+  width: 920px;
+}
+
+header img {
+  margin-top: 15px;
+  float: left; 
+  border-radius: 10px;
+  width: 150px;
+}
+
+header li {
+  display: inline-block;
+  line-height: 120px;
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: goldenrod
+}
+
+nav a:hover {
+  color: darkgoldenrod;
+}
+
+main li {
+  line-height: 30px;
+  font-style: italic;
+  color: cadetblue;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+#main-imgOne {
+  margin-left: 30px;
+  width: 350px;
+  height: 250px;
+}
+
+#main-imgTwo {
+  margin-left: 30px;
+  width: 50%;
+}
+
 li {
   font-family: "Verdana";
   color: purple;
@@ -65,4 +108,16 @@ tr td {
   font-weight: bold;
 } */
   
+/* swag page list items */
+#main-swag ul {
+  list-style-type: none;
+}
 
+/* menu page list items */
+#main-menu ul {
+  list-style-type: none;
+}
+
+footer {
+  
+}
