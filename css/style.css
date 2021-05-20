@@ -99,6 +99,10 @@ tr td {
   font-weight: bold;
 } */
   
+/* swag page list items */
+#main-swag ul {
+  list-style-type: none;
+}
 
 footer {
   
