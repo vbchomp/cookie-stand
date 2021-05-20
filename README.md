@@ -4,7 +4,7 @@
 
 ## Salmon Cookies
 
-The Salmon Cookies site is a forward facing site that has the store's logo and store hours. The rear facing side has sale data. Sales data is cumulative for all five stores and saved on a separate page. There is a swag page with merchandise for sale. There is a locations page with a google maps link with phone number and hours of operation for each store. There is a menu page. 
+The Salmon Cookies site is a forward facing site that has the store's logo and store hours. The rear facing side has sale data. Sales data is cumulative for all five stores and saved on a separate page. There is a swag page with merchandise for sale. There is a locations page with a google maps link with phone number and hours of operation for each store. There is a menu page.
 
 ### Collaborators
 
