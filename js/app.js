@@ -7,7 +7,7 @@
 //const mainContainer = document.getElementById('main-container');
 const salmonTable = document.querySelector('table');
 const salmonHead = document.getElementById('table-head');
-const salmonFlipppers = document.getElementById('table-foot');
+const salmonFlippers = document.getElementById('table-foot');
 
 let allRenderArray = [];
 let allStores = [];
@@ -83,40 +83,32 @@ SalmonCookies.prototype.renderHeader = function () {
   salmonHead.appendChild(td);
 };
 
-// // daily total sales function
-// SalmonCookies.prototype.allStoresHourlyTotals = function() {
-//   for(let i = 0; i < this.cookiesPerHrArray.length; i++) {
-//     let totalPerHour = 0;
-//     // console.log(this.cookiesPerHrArray[i]);
-//     for (let j = 0; j < this.cookiesPerHrArray[i].length; j++) {
-//       totalPerHour += this.cookiesPerHrArray[j][i];
-//     }
-//     console.log(totalPerHour);
-//   }
-// };
-
 // this.allStoresHourlyTotals();
 // Not working at the moment
 // Maybe a while loop to see if row total matches column total?
 // Footer function to put Totals row and add up each column
-SalmonCookies.prototype.renderFooter = function () {
+
+let renderFooter = function (arr) {
+  let totalPerHour = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   let td1 = document.createElement('td');
   td1.textContent = 'Totals';
-  salmonFlipppers.appendChild(td1);
-  for (let i = 0; i < this.allStores.length; i++) {
-    let totalPerHour = 0;
-    for (let j = 0; j < this.cookiesPerHrArray.length; j++) {
-      this.totalPerHour += this.cookiesPerHrArray[j][i];
+  salmonFlippers.appendChild(td1);
+  for (let i = 0; i < allStores.length; i++) {
+    console.log(allStores[i]);
+    for (let j = 0; j < totalPerHour.length; j++) {
+      totalPerHour[j] += arr[i].cookiesPerHrArray[j];
     }
-    let td = document.createElement('td');
-    td.textContent = this.totalPerHour;
-    salmonFlipppers.appendChild(td);
   }
   // totalTotal will be the total of all stores all hours
-  // comment back in once you figure out how to do the total
-  // let td2 = document.createElement('td');
-  // td2.textContent = `${totalTotal}`;
-  // salmonFlipppers.appendChild(td2);
+  // Trying to do total of hourly totals
+  // let totalTotal = 0;
+  for (let i = 0; i < totalPerHour.length; i++){
+    let td2 = document.createElement('td');
+    td2.textContent = totalPerHour[i];
+    // totalTotal += totalPerHour[i];
+    salmonFlippers.appendChild(td2);
+  }
+  console.log(totalPerHour);
 };
 
 // Render all function applies all functions and publishes data to html page
@@ -125,7 +117,7 @@ function renderAll() {
     allRenderArray[i].renderToHTML();
   }
   seattle.renderHeader();
-  seattle.renderFooter();
+  // seattle.renderFooter();
 }
 
 // Instantiating store objects
@@ -136,12 +128,6 @@ let paris = new SalmonCookies('Paris', 20, 38, 2.3);
 let lima = new SalmonCookies('Lima', 2, 16, 4.6);
 
 
-// seattle.renderToHTML();
-// tokyo.renderToHTML();
-// dubai.renderToHTML();
-// paris.renderToHTML();
-// lima.renderToHTML();
-// seattle.renderHeader();
-// console.log(seattle);
-
 renderAll();
+renderFooter(allStores);
+console.log(allStores);
