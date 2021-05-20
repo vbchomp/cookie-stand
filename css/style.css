@@ -53,8 +53,17 @@ main li {
   text-decoration: none;
 }
 
+#main-imgOne {
+  margin-left: 30px;
+  width: 350px;
+  height: 250px;
+}
 
-  
+#main-imgTwo {
+  margin-left: 30px;
+  width: 50%;
+}
+
 li {
   font-family: "Verdana";
   color: purple;
@@ -101,6 +110,11 @@ tr td {
   
 /* swag page list items */
 #main-swag ul {
+  list-style-type: none;
+}
+
+/* menu page list items */
+#main-menu ul {
   list-style-type: none;
 }
 
