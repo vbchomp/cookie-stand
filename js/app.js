@@ -102,15 +102,22 @@ let renderFooter = function (arr) {
       totalPerHour[j] += arr[i].cookiesPerHrArray[j];
     }
   }
-  // totalTotal will be the total of all stores all hours
   // Trying to do total of hourly totals
   for (let i = 0; i < totalPerHour.length; i++){
     let td2 = document.createElement('td');
     td2.textContent = totalPerHour[i];
-    // totalTotal += totalPerHour[i];
+    // let totalTotal = totalTotal + totalPerHour[i];
     salmonFlippers.appendChild(td2);
   }
+  // trying to get totalTotal for the grand total
+  // for (let i = 0; i < totalPerHour.length; i++) {
+  //   let td3 = document .createElement('td');
+  //   td3.textContent = totalTotal;
+  //   salmonFlippers.appendChild(td3);
+  // }
   console.log(totalPerHour);
+  // console log for grand total
+  // console.log(totalTotal);
 };
 
 // Render all function applies all functions and publishes data to html page
