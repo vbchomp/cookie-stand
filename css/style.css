@@ -64,6 +64,13 @@ main li {
   width: 25%;
 }
 
+#main-container img {
+  border-radius: 10px;
+}
+
+#main-container p {
+  width: 920px;
+}
 li {
   font-family: "Verdana";
   color: purple;

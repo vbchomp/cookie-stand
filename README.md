@@ -13,6 +13,7 @@ Willem Jacobs
 Charlie Fadness
 Joe - TA (Will need to get his name before final submission)
 Phil Murphy
+Quentin Young III
 
 ### Links and Resources
 
