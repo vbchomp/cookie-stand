@@ -4,7 +4,7 @@
 // console.log('Wazzup');
 
 // access DOM with each container
-//const mainContainer = document.getElementById('main-container');
+// const mainContainer = document.getElementById('main-container');
 const salmonTable = document.querySelector('table');
 const salmonHead = document.getElementById('table-head');
 const salmonFlippers = document.getElementById('table-foot');
@@ -88,20 +88,22 @@ SalmonCookies.prototype.renderHeader = function () {
 // Maybe a while loop to see if row total matches column total?
 // Footer function to put Totals row and add up each column
 
+// arr is a placeholder for the type of data type that the function will use
+// same as on line 16 nameLoc, minCust, etc (parameters that become arguments)
 let renderFooter = function (arr) {
-  let totalPerHour = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  //let totalPerHour = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]; same as line 94
+  let totalPerHour = new Array((arr[0].hoursOpenArray.length) - 1).fill(0);
   let td1 = document.createElement('td');
   td1.textContent = 'Totals';
   salmonFlippers.appendChild(td1);
   for (let i = 0; i < allStores.length; i++) {
-    console.log(allStores[i]);
+    //console.log(allStores[i]);
     for (let j = 0; j < totalPerHour.length; j++) {
       totalPerHour[j] += arr[i].cookiesPerHrArray[j];
     }
   }
   // totalTotal will be the total of all stores all hours
   // Trying to do total of hourly totals
-  // let totalTotal = 0;
   for (let i = 0; i < totalPerHour.length; i++){
     let td2 = document.createElement('td');
     td2.textContent = totalPerHour[i];
