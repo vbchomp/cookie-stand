@@ -1,6 +1,6 @@
 # cookie-stand
 
-## LAB - 6, 7, 8a, 8b
+## LAB - 6, 7, 8a, 8b, 9
 
 ## Salmon Cookies
 
@@ -9,6 +9,7 @@ The Salmon Cookies site is a forward facing site that has the store's logo and s
 ### Collaborators
 
 Heather Bisgaard
+Ryan Gallaway
 Willem Jacobs
 Charlie Fadness
 Joe - TA (Will need to get his name before final submission)
@@ -18,6 +19,8 @@ Quentin Young III
 ### Links and Resources
 
 [Random Number Between Two Values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+
+[HTML5 input type=number and decimals/floats in Chrome](https://isotoma.com/blog/2012/03/02/html5-input-typenumber-and-decimalsfloats-in-chrome/)
 
 ### Submission PR
 
@@ -34,3 +37,5 @@ Quentin Young III
 - Lab 8b. Getting lost in all the CSS across all the different pages. Tryong to keep track of which list item is which is tough. Not sure design is a strong skill I have.
 
 - Looking at YouTube videos now on how to do 2d arrays so that I can start my cookies per hour over. I think I got lost in my variables and need a clean slate to get the totals rows to work. Besides...Practice!!!
+
+- Lab 9.
