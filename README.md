@@ -39,4 +39,4 @@ Vince - TA (Will need to get his name before final submission)
 
 - Looking at YouTube videos now on how to do 2d arrays so that I can start my cookies per hour over. I think I got lost in my variables and need a clean slate to get the totals rows to work. Besides...Practice!!!
 
-- Lab 9.
+- Lab 9. Lots of new stuff to learn. I was initially comfortable with forms and events then realized my table was not updating the footer. Luckily, Ryan was able to save the day and help me, bsaically re-write my renderFooter function to allow it to re-write. I had my hours and locations arrays flip flopped so that creating my for loops was more difficult. So, I just need to remember that which ever array is on the y axis is the slow array and will be the one on the outside for loop.
