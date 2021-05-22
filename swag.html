@@ -27,11 +27,48 @@
   <div id="main-container">
     <main id="main-swag">
       <ul>
-        <li><img src="img/cutter.jpeg" alt="Salmon cookie cutter"> Cookie Cutter, $8</li>
-        <li><img src="img/fish.jpg" alt="Four fish magnets">Salmon Magnets, One $5 or Two for $8</li>
-        <li><img src="img/shirt.jpg" alt="Two salmon on tshirt">T-Shirt, $15 XS-XXXL</li>
-        <li><img src="img/chinook.jpg" alt="Chinook salmon stuffed animal">Stuffed Salmon Pillow, $20</li>
+        <li><img id="cutter" src="img/cutter.jpeg" alt="Salmon cookie cutter"> Cookie Cutter, $8</li>
+        <!-- <form id="order-amount">
+          <p>How many would<br /> you like?</p>
+            <select name="order">
+              <option value="one">1</option>
+              <option value="two">2</option>
+              <option value="three">3</option>
+            </select>
+        </form> -->
+        <li><img id="magnet" src="img/fish.jpg" alt="Four fish magnets">Salmon Magnets, One $5 or Two for $8</li>
+        <li><img id="shirt" src="img/shirt.jpg" alt="Two salmon on tshirt">T-Shirt, $15 XS-XXXL</li>
+        <li><img id="pillow" src="img/chinook.jpg" alt="Chinook salmon stuffed animal">Stuffed Salmon Pillow, $20</li>
       </ul>
+      <form id="swag-order">
+        <p>Would You Like to Purchase Something From Our Store?</p>
+          <select id="swag" name="swag">
+            <option value="cutter">Cookie Cutter</option>
+            <option value="magnet">Fish Magnet</option>
+            <option value="tshirt">T-Shirt</option>
+            <option value="pillow">Salmon Stuffed Pillow</option>
+          </select>
+      </form>
+      <form id="order-amount">
+        <p>How many would you like?</p>
+          <select id="amount" name="amount">
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+          </select>
+      </form>
+      <form id="tshirt-size">
+        <p>What size t-shirt do you need?</p>
+          <select id="size" name="size">
+            <option value="xs">XS</option>
+            <option value="s">S</option>
+            <option value="m">M</option>
+            <option value="l">L</option>
+            <option value="xl">XL</option>
+            <option value="xxl">XXL</option>
+            <option value="xxxl">XXXL</option>
+          </select>
+      </form>
       <p>The hottest new cookie with your coffee!</p>
     </main>
   </div>
