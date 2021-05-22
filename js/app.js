@@ -9,6 +9,9 @@ const salmonTable = document.querySelector('table');
 const salmonHead = document.getElementById('table-head');
 const salmonFlippers = document.getElementById('table-foot');
 
+// event handler for sales.html form window into DOM
+let salesForm = document.getElementById('sales-form');
+
 let allRenderArray = [];
 let allStores = [];
 
@@ -27,6 +30,7 @@ function SalmonCookies(nameLoc, minCust, maxCust, avgCookieSale) {
   // this.allStores = [];
   // this.renderToHTML();
   allStores.push(this);
+  this.newStore;
 }
 
 // random customer function
@@ -115,7 +119,7 @@ let renderFooter = function (arr) {
   //   td3.textContent = totalTotal;
   //   salmonFlippers.appendChild(td3);
   // }
-  console.log(totalPerHour);
+  //console.log(totalPerHour);
   // console log for grand total
   // console.log(totalTotal);
 };
@@ -129,6 +133,19 @@ function renderAll() {
   // seattle.renderFooter();
 }
 
+// define event handler for salesForm
+function handleSubmit(event){
+  event.preventDefault();
+  let storeName = event.target.nameloc.value;
+  let mininmumCust = event.target.mincust.value;
+  let maximumCust = event.target.maxcust.value;
+  //console.log(storeName);
+
+  let newStore = new SalmonCookies(storeName, mininmumCust, maximumCust);
+  newStore.renderToHTML();
+  console.log(allStores);
+}
+
 // Instantiating store objects
 let seattle = new SalmonCookies('Seattle', 23, 65, 6.3);
 let tokyo = new SalmonCookies('Tokyo', 3, 24, 1.2);
@@ -139,4 +156,6 @@ let lima = new SalmonCookies('Lima', 2, 16, 4.6);
 
 renderAll();
 renderFooter(allStores);
-console.log(allStores);
+
+// event listener for salesForm
+salesForm.addEventListener('submit', handleSubmit);

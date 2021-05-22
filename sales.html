@@ -26,6 +26,22 @@
   <div class="main-container">
     <main id="main-container">
       <p>The hottest new cookie with your coffee!</p>
+      <form id="sales-form">
+        <fieldset>
+          <legend>Add a New Store</legend>
+          <label>Name of New Store Location
+            <input type="text" name="nameloc">
+          </label>
+          <!-- step=any allows for decimals and min=0 only allows positive numbers -->
+          <label>Minimum Customer Average
+            <input type="number" step="any" min="0" name="mincust">
+          </label>
+          <label>Maximum Customer Average
+            <input type="number" step="any" min="0" name="maxcust">
+          </label>
+          <button type="submit">Submit New Store</button>
+        </fieldset>
+      </form>
       <table>
         <thead id="table-head"></thead>
         <tfoot id="table-foot"></tfoot>
