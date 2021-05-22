@@ -30,17 +30,17 @@
         <fieldset>
           <legend>Add a New Store</legend>
           <label>Name of New Store Location
-            <input type="text" name="nameloc" required>
+            <input type="text" name="nameloc" placeholder="City" required>
           </label>
           <!-- step=any allows for decimals and min=0 only allows positive numbers -->
-          <label>Minimum Customer Average
-            <input type="number" step="any" min="0" name="mincust" required>
+          <label>Min Daily Customer Average
+            <input type="number" step="any" min="0" name="mincust" placeholder="Min Daily Customers" required>
           </label>
-          <label>Maximum Customer Average
-            <input type="number" step="any" min="0" name="maxcust" required>
+          <label>Max Daily Customer Average
+            <input type="number" step="any" min="0" name="maxcust" placeholder="Max Daily Customers" required>
           </label>
           <label>Average Cookie Sale Per Hour
-            <input type="number" step="any" min="0" name="avgcookie" required>
+            <input type="number" step="any" min="0" name="avgcookie" placeholder="Avg Hourly Cookie Sales"required>
           </label>
           <button type="submit">Submit New Store</button>
         </fieldset>

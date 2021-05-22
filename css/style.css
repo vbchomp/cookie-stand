@@ -153,6 +153,26 @@ button {
   text-align: right;
 }
 
+/* swag order form styling */
+
+#swag {
+  background-color: cadetblue;
+  opacity: 37.5%;
+  color: darkchocolate;
+}
+
+#amount {
+  background-color: cadetblue;
+  opacity: 37.5%;
+  color: darkchocolate;
+}
+
+#size {
+  background-color: cadetblue;
+  opacity: 37.5%;
+  color: darkchocolate;
+}
+
 /* footer {
   
 } */

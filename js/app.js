@@ -14,6 +14,7 @@ let salesForm = document.getElementById('sales-form');
 
 let allRenderArray = [];
 let allStores = [];
+let hoursOpenArray = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900'];
 
 // salmon constructor
 function SalmonCookies(nameLoc, minCust, maxCust, avgCookieSale) {
@@ -21,7 +22,6 @@ function SalmonCookies(nameLoc, minCust, maxCust, avgCookieSale) {
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookieSale = avgCookieSale;
-  this.hoursOpenArray = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900'];
   this.cookiesPerHrArray = [];
   allRenderArray.push(this);
   // dailyCookies is total of hourlyCookie per store
@@ -41,7 +41,7 @@ SalmonCookies.prototype.randomCustGen = function () {
 // hourly total function
 SalmonCookies.prototype.hourlyDailySales = function () {
   this.hourlyCookies = 0;
-  for (let i = 0; i < this.hoursOpenArray.length; i++) {
+  for (let i = 0; i < hoursOpenArray.length; i++) {
     let hourlyCookies = Math.ceil(this.avgCookieSale * this.randomCustGen());
     this.cookiesPerHrArray.push(hourlyCookies);
     // adds up hourly totals to get daily totals
@@ -60,7 +60,7 @@ SalmonCookies.prototype.renderToHTML = function () {
   td.textContent = this.nameLoc;
   tr.appendChild(td);
   // loop through all hours the store is open
-  for (let i = 0; i < this.hoursOpenArray.length; i++) {
+  for (let i = 0; i < hoursOpenArray.length; i++) {
     let td = document.createElement('td');
     td.textContent = this.cookiesPerHrArray[i];
     tr.appendChild(td);
@@ -77,9 +77,9 @@ SalmonCookies.prototype.renderHeader = function () {
   let td1 = document.createElement('td');
   td1.textContent = 'City/Hours';
   salmonHead.appendChild(td1);
-  for (let i = 0; i < this.hoursOpenArray.length; i++) {
+  for (let i = 0; i < hoursOpenArray.length; i++) {
     let td = document.createElement('td');
-    td.textContent = this.hoursOpenArray[i];
+    td.textContent = hoursOpenArray[i];
     salmonHead.appendChild(td);
   }
   let td = document.createElement('td');
@@ -89,31 +89,26 @@ SalmonCookies.prototype.renderHeader = function () {
 
 // arr is a placeholder for the type of data type that the function will use
 // same as on line 16 nameLoc, minCust, etc (parameters that become arguments)
-let renderFooter = function (arr) {
-  //let totalPerHour = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]; same as line 94
-  let totalPerHour = new Array(arr[0].hoursOpenArray.length).fill(0);
+let renderFooter = function () {
   let td1 = document.createElement('td');
   td1.textContent = 'Totals';
   salmonFlippers.appendChild(td1);
   let totalTotal = 0;
-  for (let i = 0; i < allStores.length; i++) {
-    //console.log(allStores[i]);
-    for (let j = 0; j < totalPerHour.length; j++) {
-      totalPerHour[j] += arr[i].cookiesPerHrArray[j];
-      totalTotal += arr[i].cookiesPerHrArray[j];
+  for (let i = 0; i < hoursOpenArray.length; i++) {
+    let totalPerHour = 0;
+    for (let j = 0; j < allStores.length; j++) {
+      totalPerHour += allStores[j].cookiesPerHrArray[i];
+      totalTotal += allStores[j].cookiesPerHrArray[i];
     }
-    // totalTotal += totalPerHour[i];
     // console.log(totalTotal);
-  }
-  // Trying to do total of hourly totals
-  for (let i = 0; i < totalPerHour.length; i++){
     let td2 = document.createElement('td');
-    td2.textContent = totalPerHour[i];
+    td2.textContent = totalPerHour;
     // let totalTotal = totalTotal + totalPerHour[i];
     salmonFlippers.appendChild(td2);
   }
+
   // Grand total appended to table
-  let td3 = document .createElement('td');
+  let td3 = document.createElement('td');
   td3.textContent = totalTotal;
   salmonFlippers.appendChild(td3);
 };
@@ -124,10 +119,10 @@ function renderAll() {
     allRenderArray[i].renderToHTML();
   }
   seattle.renderHeader();
-  // seattle.renderFooter();
 }
+
 // define event handler for salesForm
-function handleSubmit(event){
+function handleSubmit(event) {
   event.preventDefault();
   let storeName = event.target.nameloc.value;
   let mininmumCust = parseInt(event.target.mincust.value);
@@ -138,6 +133,8 @@ function handleSubmit(event){
   let newStore = new SalmonCookies(storeName, mininmumCust, maximumCust, averageCookie);
   newStore.renderToHTML();
   // console.log(allStores);
+  salmonFlippers.innerHTML = '';
+  renderFooter();
 }
 
 // Instantiating store objects
