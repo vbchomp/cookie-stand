@@ -86,6 +86,7 @@ p {
 table {
   border-spacing: 5px;
   border: medium solid darkred;
+  border-radius: 4px;
   margin: 10px;
   width: 50%;
   font-size: 1em;
@@ -106,6 +107,7 @@ tr td {
 
 #table-head, #table-foot {
   background-color: rgba(218, 165, 32, .5);
+  border-radius: 4px;
   font-weight: bold;
   text-align: right;
 }
@@ -123,6 +125,32 @@ tr td {
 /* menu page list items */
 #main-menu ul {
   list-style-type: none;
+}
+
+/* sales form styling */
+#sales-form {
+  width: 890px;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border-spacing: 5px;
+  border: medium solid darkred;  
+  font-family: 'Cuprum', sans-serif;
+  line-height: 2em;
+}
+
+input {
+  background-color: cadetblue;
+  opacity: 50%;
+  color: darkchocolate;
+}
+
+button {
+  background-color: rgba(218, 165, 32, .5);
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: right;
 }
 
 /* footer {
