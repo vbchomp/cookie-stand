@@ -49,8 +49,6 @@ SalmonCookies.prototype.hourlyDailySales = function () {
   }
 };
 
-
-
 // render function
 // sends arrays to html list items
 SalmonCookies.prototype.renderToHTML = function () {
@@ -76,7 +74,9 @@ SalmonCookies.prototype.renderToHTML = function () {
 
 // Header function to put hours on top row and Totals in last column
 SalmonCookies.prototype.renderHeader = function () {
-  this.hoursOpenArray.unshift('');
+  let td1 = document.createElement('td');
+  td1.textContent = 'City/Hours';
+  salmonHead.appendChild(td1);
   for (let i = 0; i < this.hoursOpenArray.length; i++) {
     let td = document.createElement('td');
     td.textContent = this.hoursOpenArray[i];
@@ -87,24 +87,23 @@ SalmonCookies.prototype.renderHeader = function () {
   salmonHead.appendChild(td);
 };
 
-// this.allStoresHourlyTotals();
-// Not working at the moment
-// Maybe a while loop to see if row total matches column total?
-// Footer function to put Totals row and add up each column
-
 // arr is a placeholder for the type of data type that the function will use
 // same as on line 16 nameLoc, minCust, etc (parameters that become arguments)
 let renderFooter = function (arr) {
   //let totalPerHour = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]; same as line 94
-  let totalPerHour = new Array((arr[0].hoursOpenArray.length) - 1).fill(0);
+  let totalPerHour = new Array(arr[0].hoursOpenArray.length).fill(0);
   let td1 = document.createElement('td');
   td1.textContent = 'Totals';
   salmonFlippers.appendChild(td1);
+  let totalTotal = 0;
   for (let i = 0; i < allStores.length; i++) {
     //console.log(allStores[i]);
     for (let j = 0; j < totalPerHour.length; j++) {
       totalPerHour[j] += arr[i].cookiesPerHrArray[j];
+      totalTotal += arr[i].cookiesPerHrArray[j];
     }
+    // totalTotal += totalPerHour[i];
+    // console.log(totalTotal);
   }
   // Trying to do total of hourly totals
   for (let i = 0; i < totalPerHour.length; i++){
@@ -113,15 +112,10 @@ let renderFooter = function (arr) {
     // let totalTotal = totalTotal + totalPerHour[i];
     salmonFlippers.appendChild(td2);
   }
-  // trying to get totalTotal for the grand total
-  // for (let i = 0; i < totalPerHour.length; i++) {
-  //   let td3 = document .createElement('td');
-  //   td3.textContent = totalTotal;
-  //   salmonFlippers.appendChild(td3);
-  // }
-  //console.log(totalPerHour);
-  // console log for grand total
-  // console.log(totalTotal);
+  // Grand total appended to table
+  let td3 = document .createElement('td');
+  td3.textContent = totalTotal;
+  salmonFlippers.appendChild(td3);
 };
 
 // Render all function applies all functions and publishes data to html page
@@ -132,18 +126,18 @@ function renderAll() {
   seattle.renderHeader();
   // seattle.renderFooter();
 }
-
 // define event handler for salesForm
 function handleSubmit(event){
   event.preventDefault();
   let storeName = event.target.nameloc.value;
-  let mininmumCust = event.target.mincust.value;
-  let maximumCust = event.target.maxcust.value;
+  let mininmumCust = parseInt(event.target.mincust.value);
+  let maximumCust = parseInt(event.target.maxcust.value);
+  let averageCookie = parseInt(event.target.avgcookie.value);
   //console.log(storeName);
 
-  let newStore = new SalmonCookies(storeName, mininmumCust, maximumCust);
+  let newStore = new SalmonCookies(storeName, mininmumCust, maximumCust, averageCookie);
   newStore.renderToHTML();
-  console.log(allStores);
+  // console.log(allStores);
 }
 
 // Instantiating store objects
@@ -152,7 +146,6 @@ let tokyo = new SalmonCookies('Tokyo', 3, 24, 1.2);
 let dubai = new SalmonCookies('Dubai', 11, 38, 3.7);
 let paris = new SalmonCookies('Paris', 20, 38, 2.3);
 let lima = new SalmonCookies('Lima', 2, 16, 4.6);
-
 
 renderAll();
 renderFooter(allStores);

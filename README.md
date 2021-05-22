@@ -15,6 +15,7 @@ Charlie Fadness
 Joe - TA (Will need to get his name before final submission)
 Phil Murphy
 Quentin Young III
+Vince - TA (Will need to get his name before final submission)
 
 ### Links and Resources
 
