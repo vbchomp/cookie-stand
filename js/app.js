@@ -133,6 +133,7 @@ function handleSubmit(event) {
   let newStore = new SalmonCookies(storeName, mininmumCust, maximumCust, averageCookie);
   newStore.renderToHTML();
   // console.log(allStores);
+  // clears out footer in preparation for the renderFooter function
   salmonFlippers.innerHTML = '';
   renderFooter();
 }
