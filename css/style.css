@@ -1,6 +1,6 @@
 /* general styling */
 body {
-  background-image: url('/img/salmonLogo.png');
+  background-image: url('./img/salmonLogo.png');
   background-repeat: repeat-y;
   background-position: right top;
   background-color: bisque;
